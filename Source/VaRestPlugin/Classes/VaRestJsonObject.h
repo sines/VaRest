@@ -45,7 +45,8 @@ class VARESTPLUGIN_API UVaRestJsonObject : public UObject
 	UFUNCTION(BlueprintCallable, Category = "VaRest|Json")
 	bool DecodeJson(const FString& JsonString);
 
-
+	UFUNCTION(BlueprintCallable, Category = "VaRest|Json")
+	bool OpenJsonFile(const FString& FileName, FString& FilePath);
 	//////////////////////////////////////////////////////////////////////////
 	// FJsonObject API
 

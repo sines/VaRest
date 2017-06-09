@@ -67,6 +67,23 @@ FString UVaRestJsonObject::EncodeJsonToSingleString() const
 	return OutputString;
 }
 
+/*
+OpenJsonFile
+*/
+
+bool UVaRestJsonObject::OpenJsonFile(const FString& FileName, FString& FilePath)
+{
+	FString myString;
+	FilePath = FPaths::GameDir();
+	if (FFileHelper::LoadFileToString(myString, *(FPaths::GameDir() + FileName)))
+	{
+		return DecodeJson(myString);
+	}
+	
+
+	return false;
+}
+
 bool UVaRestJsonObject::DecodeJson(const FString& JsonString)
 {
 	TSharedRef< TJsonReader<> > Reader = TJsonReaderFactory<>::Create(*JsonString);
