@@ -71,10 +71,9 @@ FString UVaRestJsonObject::EncodeJsonToSingleString() const
 OpenJsonFile
 */
 
-bool UVaRestJsonObject::OpenJsonFile(const FString& FileName, FString& FilePath)
+bool UVaRestJsonObject::OpenJsonFile(const FString& FileName)
 {
 	FString myString;
-	FilePath = FPaths::GameDir();
 	if (FFileHelper::LoadFileToString(myString, *(FPaths::GameDir() + FileName)))
 	{
 		return DecodeJson(myString);
